@@ -31,7 +31,7 @@ const UserAuthFrom: FC<UserAuthFromProps> = ({ className, ...props }) => {
         {isLoading ? null : <Icons.google className="h-4 w-4 mr-2"></Icons.google>}
         Google
       </Button>
-      <Button
+      {/* <Button
         size={"sm"}
         className="w-full"
         onClick={() =>
@@ -42,7 +42,7 @@ const UserAuthFrom: FC<UserAuthFromProps> = ({ className, ...props }) => {
           })
         }>
         toast
-      </Button>
+      </Button> */}
       <Toaster></Toaster>
     </div>
   );
