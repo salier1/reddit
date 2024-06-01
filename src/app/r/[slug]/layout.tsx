@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { format } from "date-fns";
 import SubscriptLeaveToogle from "@/components/SubscriptLeaveToogle";
 import { Toaster } from "@/components/ui/Toaster";
+import Link from "next/link";
+import { buttonVariants } from "@/components/ui/Button";
 const Layout = async ({
   children,
   params,
@@ -92,6 +94,15 @@ const Layout = async ({
                   isSubscribed={isSubscribed}
                 ></SubscriptLeaveToogle>
               ) : null}
+              <Link
+                className={buttonVariants({
+                  variant: "outline",
+                  className: "w-full ",
+                })}
+                href={`r/${slug}/submit`}
+              >
+                Create Post
+              </Link>
             </dl>
           </div>
         </div>

@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
-import axios, { Axios, AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 import { CreateSubredditPayload } from "@/lib/validators/subreddit";
 import { toast } from "@/hooks/use-toast";
 import { Toaster } from "@/components/ui/Toaster";
@@ -62,10 +62,14 @@ export default function Page() {
 
         <div>
           <p className="text-lg font-medium">Name</p>
-          <p className="text-xs pb-2">Community names including capitalization can not be changed.</p>
+          <p className="text-xs pb-2">
+            Community names including capitalization can not be changed.
+          </p>
 
           <div className="relative">
-            <p className="absolute text-sm left-0 w-8 inset-y-0 grid place-items-center text-zinc-400">r/</p>
+            <p className="absolute text-sm left-0 w-8 inset-y-0 grid place-items-center text-zinc-400">
+              r/
+            </p>
             <Input
               value={input}
               onChange={(e) => {
