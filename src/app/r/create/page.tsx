@@ -2,21 +2,14 @@
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import React, { useState } from "react";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 import { CreateSubredditPayload } from "@/lib/validators/subreddit";
 import { toast } from "@/hooks/use-toast";
 import { Toaster } from "@/components/ui/Toaster";
 import { useCustomToasts } from "@/hooks/use-custom-toast";
-import { useSession } from "next-auth/react";
-
-export default async function Page() {
-  // const { data: session } = useSession();
-
-  // if (!session?.user) {
-  //   redirect("/sign-in");
-  // }
+export default function Page() {
   const [input, setInput] = useState<string>("");
   const router = useRouter();
   const { loginToast } = useCustomToasts();
@@ -60,7 +53,6 @@ export default async function Page() {
   return (
     <div className="container flex items-center h-full max-w-3xl mx-auto">
       <Toaster></Toaster>
-
       <div className="relative bg-white w-full h-fit p-4 rounded-lg space-y-6">
         <div className="flex justify-between items-center">
           <h1 className="text-xl font-semibold">Create a community</h1>

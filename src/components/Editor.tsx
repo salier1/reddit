@@ -15,6 +15,7 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 
 import "@/styles/editor.css";
+import { useCustomToasts } from "@/hooks/use-custom-toast";
 
 type FormData = z.infer<typeof PostValidator>;
 
@@ -23,6 +24,7 @@ interface EditorProps {
 }
 
 const Editor: FC<EditorProps> = ({ subredditId }) => {
+  const { loginToast } = useCustomToasts();
   const {
     register,
     handleSubmit,
@@ -46,7 +48,10 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
       const { data } = await axios.post("/api/subreddit/post/create", payload);
       return data;
     },
-    onError: () => {
+    onError: (err: any) => {
+      if (err.response?.status === 401) {
+        return loginToast();
+      }
       return toast({
         title: "Something went wrong.",
         description: "Your post was not published. Please try again.",
@@ -57,7 +62,6 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
       // turn pathname /r/mycommunity/submit into /r/mycommunity
       const newPathname = pathname.split("/").slice(0, -1).join("/");
       router.push(newPathname);
-      
 
       router.refresh();
 
