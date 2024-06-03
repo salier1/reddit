@@ -7,7 +7,6 @@ import { notFound } from 'next/navigation'
 const CustomFeed = async () => {
   const session = await getAuthSession()
 
-  // only rendered if session exists, so this will not happen
   if (!session) return notFound()
 
   const followedCommunities = await db.subscription.findMany({

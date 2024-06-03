@@ -1,6 +1,7 @@
 import { Editor } from "@/components/Editor";
-import { Button } from "@/components/ui/Button";
+import { Button, buttonVariants } from "@/components/ui/Button";
 import { db } from "@/lib/db";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 interface pageProps {
@@ -20,6 +21,12 @@ const page = async ({ params }: pageProps) => {
 
   return (
     <div className="flex flex-col items-start gap-6">
+      <Link
+        href={`/r/${params.slug}`}
+        className={buttonVariants({ variant: "ghost" })}
+      >
+        Goback
+      </Link>
       {/* heading */}
       <div className="border-b border-gray-200 pb-5">
         <div className="-ml-2 -mt-2 flex flex-wrap items-baseline">

@@ -19,7 +19,7 @@ export async function PATCH(req: Request) {
       return new Response("Unauthorized", { status: 401 });
     }
 
-    // check if user has already voted on this post
+
     const existingVote = await db.vote.findFirst({
       where: {
         userId: session.user.id,
@@ -42,7 +42,6 @@ export async function PATCH(req: Request) {
     }
 
     if (existingVote) {
-      // if vote type is the same as existing vote, delete the vote
       if (existingVote.type === voteType) {
         await db.vote.delete({
           where: {
@@ -53,7 +52,6 @@ export async function PATCH(req: Request) {
           },
         });
 
-        // Recount the votes
         const votesAmt = post.votes.reduce((acc, vote) => {
           if (vote.type === "UP") return acc + 1;
           if (vote.type === "DOWN") return acc - 1;
@@ -70,13 +68,12 @@ export async function PATCH(req: Request) {
             createdAt: post.createdAt,
           };
 
-          await redis.hset(`post:${postId}`, cachePayload); // Store the post data as a hash
+          await redis.hset(`post:${postId}`, cachePayload); 
         }
 
         return new Response("OK");
       }
 
-      // if vote type is different, update the vote
       await db.vote.update({
         where: {
           userId_postId: {
@@ -89,7 +86,7 @@ export async function PATCH(req: Request) {
         },
       });
 
-      // Recount the votes
+
       const votesAmt = post.votes.reduce((acc, vote) => {
         if (vote.type === "UP") return acc + 1;
         if (vote.type === "DOWN") return acc - 1;
@@ -106,13 +103,13 @@ export async function PATCH(req: Request) {
           createdAt: post.createdAt,
         };
 
-        await redis.hset(`post:${postId}`, cachePayload); // Store the post data as a hash
+        await redis.hset(`post:${postId}`, cachePayload); 
       }
 
       return new Response("OK");
     }
 
-    // if no existing vote, create a new vote
+
     await db.vote.create({
       data: {
         type: voteType,
@@ -138,7 +135,7 @@ export async function PATCH(req: Request) {
         createdAt: post.createdAt,
       };
 
-      await redis.hset(`post:${postId}`, cachePayload); // Store the post data as a hash
+      await redis.hset(`post:${postId}`, cachePayload); 
     }
 
     return new Response("OK");
