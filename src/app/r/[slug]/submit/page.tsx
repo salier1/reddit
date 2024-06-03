@@ -2,8 +2,8 @@ import { Editor } from "@/components/Editor";
 import { Button, buttonVariants } from "@/components/ui/Button";
 import { db } from "@/lib/db";
 import Link from "next/link";
-import { notFound } from "next/navigation";
-
+import { notFound, redirect } from "next/navigation";
+import { authOptions, getAuthSession } from "@/lib/auth";
 interface pageProps {
   params: {
     slug: string;
@@ -16,9 +16,11 @@ const page = async ({ params }: pageProps) => {
       name: params.slug,
     },
   });
-
+  // const session = await getAuthSession();
   if (!subreddit) return notFound();
-
+  // if (!session?.user) {
+  //   redirect(authOptions?.pages?.signIn || "/sign-in");
+  // }
   return (
     <div className="flex flex-col items-start gap-6">
       <Link

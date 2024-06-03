@@ -2,15 +2,21 @@
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 import { CreateSubredditPayload } from "@/lib/validators/subreddit";
 import { toast } from "@/hooks/use-toast";
 import { Toaster } from "@/components/ui/Toaster";
 import { useCustomToasts } from "@/hooks/use-custom-toast";
+import { useSession } from "next-auth/react";
 
-export default function Page() {
+export default async function Page() {
+  // const { data: session } = useSession();
+
+  // if (!session?.user) {
+  //   redirect("/sign-in");
+  // }
   const [input, setInput] = useState<string>("");
   const router = useRouter();
   const { loginToast } = useCustomToasts();
