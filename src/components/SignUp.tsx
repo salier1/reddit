@@ -23,7 +23,7 @@ const SignIn: FC = () => {
             href={"/sign-in"}
             className="hover:text-zinc-800 text-sm underline underline-offset-4"
           >
-            signin
+            登录
           </Link>
         </p>
       </div>
