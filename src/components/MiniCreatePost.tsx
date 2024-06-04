@@ -29,7 +29,7 @@ const MiniCreatePost: FC<MiniCreatePostProps> = ({ session }) => {
         <Input
           readOnly
           onClick={() => router.push(pathname + "/submit")}
-          placeholder="Create post"
+          placeholder="创建帖子"
         ></Input>
 
         <Button

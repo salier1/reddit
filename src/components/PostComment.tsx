@@ -127,7 +127,7 @@ const PostComment: FC<PostCommentProps> = ({
               value={input}
               onChange={(e) => setInput(e.target.value)}
               rows={1}
-              placeholder="What are your thoughts?"
+              placeholder="你对这个帖子有什么想法？"
             />
 
             <div className="mt-2 flex justify-end gap-2">

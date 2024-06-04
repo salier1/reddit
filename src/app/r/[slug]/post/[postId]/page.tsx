@@ -49,7 +49,7 @@ const SubRedditPostPage = async ({ params }: SubRedditPostPageProps) => {
         href={`/r/${params.slug}`}
         className={buttonVariants({ variant: "ghost" })}
       >
-        Goback
+        返回
       </Link>
       <div className="h-full flex flex-col sm:flex-row items-center sm:items-start justify-between">
         <Suspense fallback={<PostVoteShell />}>
