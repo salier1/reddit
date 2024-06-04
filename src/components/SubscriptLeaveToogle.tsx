@@ -101,7 +101,7 @@ const SubscriptLeaveToogle: FC<SubscriptLeaveToogleProps> = ({
       onClick={() => subscribe()}
       className="w-full mt-1 mb-4"
     >
-      加入发布
+      加入社区
     </Button>
   );
 };
