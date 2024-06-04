@@ -8,7 +8,7 @@ export default async function Home() {
   const session = await getAuthSession();
   return (
     <div>
-      <h1 className="font-bold text-3xl md:text-4xl">Your feed</h1>
+      <h1 className="font-bold text-3xl md:text-4xl">你的帖子</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-x-4 py-6">
         {/* feed */}
         {/* @ts-expect-error server components */}
@@ -19,15 +19,14 @@ export default async function Home() {
           <div className="bg-emerald-100 px-6 py-4">
             <p className="font-semibold py-3 flex items-center gap-1.5">
               <HomeIcon className="w-4 h-4"></HomeIcon>
-              Home
+              主页
             </p>
           </div>
 
           <div className="-my-3 divide-y divide-gray-100  px-6 py-4 text-sm leading-6">
             <div className="flex justify-between gap-x-4 py-3">
               <p className="text-zinc-500">
-                Your personal Breadit homepage. Come here to check in with your
-                favorite communities
+                您的个人Breadit主页。来这里查看你的最喜欢的社区！
               </p>
             </div>
 
@@ -37,7 +36,7 @@ export default async function Home() {
               })}
               href={"/r/create"}
             >
-              Create Community
+              创建社区
             </Link>
           </div>
         </div>

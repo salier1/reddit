@@ -20,21 +20,25 @@ const UserAccountNav: FC<UserAccountNavProps> = ({ user }) => {
         <div className="flex items-center justify-start gap-2 p-2">
           <div className="flex flex-col space-y-1 leading-none">
             {user.name && <p className="font-medium">{user.name}</p>}
-            {user.email && <p className="w-[200px] truncate text-sm text-zinc-700">{user.email}</p>}
+            {user.email && (
+              <p className="w-[200px] truncate text-sm text-zinc-700">
+                {user.email}
+              </p>
+            )}
           </div>
         </div>
         <DropdownMenuSeparator></DropdownMenuSeparator>
 
         <DropdownMenuItem asChild>
-          <Link href="/">Feed</Link>
+          <Link href="/">帖子</Link>
         </DropdownMenuItem>
 
         <DropdownMenuItem asChild>
-          <Link href="/r/create">Create community</Link>
+          <Link href="/r/create">创建社区</Link>
         </DropdownMenuItem>
 
         <DropdownMenuItem asChild>
-          <Link href="/settings">Settings</Link>
+          <Link href="/settings">设置</Link>
         </DropdownMenuItem>
 
         <DropdownMenuSeparator></DropdownMenuSeparator>
@@ -46,8 +50,9 @@ const UserAccountNav: FC<UserAccountNavProps> = ({ user }) => {
             signOut({
               callbackUrl: `${window.location.origin}/sign-in`,
             });
-          }}>
-          Sign out
+          }}
+        >
+          退出
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

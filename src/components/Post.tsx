@@ -48,7 +48,8 @@ const Post: FC<PostProps> = ({
                 <span className="px-1">•</span>
               </>
             ) : null}
-            <span>Posted by u/{post.author.name}</span>{" "}
+            <span>u/{post.author.name}</span>
+            {" 发布于 "}
             {formatTimeToNow(new Date(post.createdAt))}
           </div>
           <a href={`/r/${subredditName}/post/${post.id}`}>
@@ -74,7 +75,7 @@ const Post: FC<PostProps> = ({
           href={`/r/${subredditName}/post/${post.id}`}
           className="w-fit flex items-center gap-2"
         >
-          <MessageSquare className="h-4 w-4" /> {commentAmt} comments
+          <MessageSquare className="h-4 w-4" /> {commentAmt} 评论
         </Link>
       </div>
     </div>

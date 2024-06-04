@@ -23,8 +23,8 @@ export default function Page() {
       if (err instanceof AxiosError) {
         if (err.response?.status === 409) {
           return toast({
-            title: "Subreddit already exist",
-            description: "Please choose a different subreddit name.",
+            title: "该社区已经存在",
+            description: "请选择不同的社区名称。",
             variant: "destructive",
           });
         }
@@ -33,15 +33,15 @@ export default function Page() {
         }
         if (err.response?.status === 422) {
           return toast({
-            title: "Subreddit name invalid",
-            description: "Please choose a name between 3 and 21 characters.",
+            title: "社区名称无效",
+            description: "请在3到21个字符之间选择一个名字。",
             variant: "destructive",
           });
         }
 
         return toast({
-          title: "There was an error",
-          description: "Could not create subreddit.",
+          title: "有一个错误",
+          description: "无法创建subreddit。",
           variant: "destructive",
         });
       }
@@ -55,16 +55,14 @@ export default function Page() {
       <Toaster></Toaster>
       <div className="relative bg-white w-full h-fit p-4 rounded-lg space-y-6">
         <div className="flex justify-between items-center">
-          <h1 className="text-xl font-semibold">Create a community</h1>
+          <h1 className="text-xl font-semibold">创建一个社区</h1>
         </div>
 
         <hr className="bg-z-500 h-px" />
 
         <div>
-          <p className="text-lg font-medium">Name</p>
-          <p className="text-xs pb-2">
-            Community names including capitalization can not be changed.
-          </p>
+          <p className="text-lg font-medium">名称</p>
+          <p className="text-xs pb-2">包括大写在内的社区名称不能更改。</p>
 
           <div className="relative">
             <p className="absolute text-sm left-0 w-8 inset-y-0 grid place-items-center text-zinc-400">
@@ -81,7 +79,7 @@ export default function Page() {
         </div>
 
         <div className="flex justify-end gap-4">
-          <Button onClick={() => router.back()}>Cancel</Button>
+          <Button onClick={() => router.back()}>取消</Button>
           <Button
             isLoading={isLoading}
             disabled={input.length === 0}
@@ -89,7 +87,7 @@ export default function Page() {
               createCommunity();
             }}
           >
-            Create Community
+            创建社区
           </Button>
         </div>
       </div>

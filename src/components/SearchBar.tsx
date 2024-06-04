@@ -73,12 +73,12 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
         }}
         value={input}
         className="outline-none border-none focus:border-none focus:outline-none ring-0"
-        placeholder="Search communities..."
+        placeholder="搜索社区..."
       />
       <CommandList className="absolute bg-white top-full inset-x-0 shadow rounded-b-md">
         {input.length > 0 && (
           <>
-            {isFetched && <CommandEmpty>No results found.</CommandEmpty>}
+            {isFetched && <CommandEmpty>没有找到结果。</CommandEmpty>}
             {(queryResults?.length ?? 0) > 0 ? (
               <CommandGroup heading="Communities">
                 {queryResults?.map((subreddit) => (

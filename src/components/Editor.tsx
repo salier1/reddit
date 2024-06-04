@@ -53,8 +53,8 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
         return loginToast();
       }
       return toast({
-        title: "Something went wrong.",
-        description: "Your post was not published. Please try again.",
+        title: "出了点问题。",
+        description: "您的帖子没有发布。请再试一次。",
         variant: "destructive",
       });
     },
@@ -66,7 +66,7 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
       router.refresh();
 
       return toast({
-        description: "Your post has been published.",
+        description: "您的帖子已发布。",
       });
     },
   });
@@ -207,9 +207,9 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
           <p className="text-sm text-gray-500">
             Use{" "}
             <kbd className="rounded-md border bg-muted px-1 text-xs uppercase">
-              Tab
+              按Tab
             </kbd>{" "}
-            to open the command menu.
+            打开命令菜单。
           </p>
         </div>
       </form>

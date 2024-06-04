@@ -54,22 +54,22 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
       if (err instanceof AxiosError) {
         if (err.response?.status === 409) {
           return toast({
-            title: "Username already taken.",
-            description: "Please choose another username.",
+            title: "用户名已被占用。",
+            description: "请选择另一个用户名。",
             variant: "destructive",
           });
         }
       }
 
       return toast({
-        title: "Something went wrong.",
-        description: "Your username was not updated. Please try again.",
+        title: "出了点问题。",
+        description: "您的用户名没有更新。请再试一次。",
         variant: "destructive",
       });
     },
     onSuccess: () => {
       toast({
-        description: "Your username has been updated.",
+        description: "您的用户名已更新。",
       });
       router.refresh();
     },
@@ -83,10 +83,8 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
     >
       <Card>
         <CardHeader>
-          <CardTitle>Your username</CardTitle>
-          <CardDescription>
-            Please enter a display name you are comfortable with.
-          </CardDescription>
+          <CardTitle>你的用户名</CardTitle>
+          <CardDescription>请输入您满意的用户名。</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="relative grid gap-1">
@@ -94,7 +92,7 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
               <span className="text-sm text-zinc-400">u/</span>
             </div>
             <Label className="sr-only" htmlFor="name">
-              Name
+              用户名
             </Label>
             <Input
               id="name"
@@ -108,7 +106,7 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
           </div>
         </CardContent>
         <CardFooter>
-          <Button isLoading={isLoading}>Change name</Button>
+          <Button isLoading={isLoading}>更改用户名</Button>
         </CardFooter>
       </Card>
     </form>
