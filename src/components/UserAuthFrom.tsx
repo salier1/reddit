@@ -67,18 +67,7 @@ const UserAuthFrom: FC<UserAuthFromProps> = ({ className, ...props }) => {
         )}
         Github
       </Button>
-      {/* <Button
-        size={"sm"}
-        className="w-full"
-        onClick={() =>
-          toast({
-            title: "There was a problem.",
-            description: "There was an error logging in with Google",
-            variant: "destructive",
-          })
-        }>
-        toast
-      </Button> */}
+
       <Toaster></Toaster>
     </div>
   );
