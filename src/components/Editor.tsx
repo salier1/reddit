@@ -53,8 +53,8 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
         return loginToast();
       }
       return toast({
-        title: "Something went wrong.",
-        description: "Your post was not published. Please try again.",
+        title: "出了点问题。",
+        description: "您的帖子没有发布。请再试一次。",
         variant: "destructive",
       });
     },
@@ -66,7 +66,7 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
       router.refresh();
 
       return toast({
-        description: "Your post has been published.",
+        description: "您的帖子已发布。",
       });
     },
   });
@@ -94,7 +94,7 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
         onReady() {
           ref.current = editor;
         },
-        placeholder: "Type here to write your post...",
+        placeholder: "键入此处以撰写您的帖子...",
         inlineToolbar: true,
         data: { blocks: [] },
         tools: {
@@ -137,7 +137,7 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
       for (const [_key, value] of Object.entries(errors)) {
         value;
         toast({
-          title: "Something went wrong.",
+          title: "出了点问题。",
           description: (value as { message: string }).message,
           variant: "destructive",
         });
@@ -194,7 +194,7 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
       >
         <div className="prose prose-stone dark:prose-invert">
           <TextareaAutosize
-            placeholder="Titile"
+            placeholder="标题"
             className="w-full resize-none appearance-none overflow-hidden bg-transparent text-5xl font-bold focus:outline-none"
             ref={(e) => {
               titleRef(e);
@@ -205,11 +205,11 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
           ></TextareaAutosize>
           <div id="editor" className="min-h-[500px]" />
           <p className="text-sm text-gray-500">
-            Use{" "}
+            按{" "}
             <kbd className="rounded-md border bg-muted px-1 text-xs uppercase">
               Tab
             </kbd>{" "}
-            to open the command menu.
+            打开命令菜单。
           </p>
         </div>
       </form>

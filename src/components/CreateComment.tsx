@@ -41,8 +41,8 @@ const CreateComment: FC<CreateCommentProps> = ({ postId, replyToId }) => {
       }
 
       return toast({
-        title: "Something went wrong.",
-        description: "Comment wasn't created successfully. Please try again.",
+        title: "出了点问题。",
+        description: "评论没有成功创建。请再试一次。",
         variant: "destructive",
       });
     },
@@ -54,14 +54,14 @@ const CreateComment: FC<CreateCommentProps> = ({ postId, replyToId }) => {
 
   return (
     <div className="grid w-full gap-1.5">
-      <Label htmlFor="comment">Your comment</Label>
+      <Label htmlFor="comment">你的评论</Label>
       <div className="mt-2">
         <Textarea
           id="comment"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           rows={1}
-          placeholder="What are your thoughts?"
+          placeholder="你对这个帖子有什么想法？"
         />
 
         <div className="mt-2 flex justify-end">
@@ -70,7 +70,7 @@ const CreateComment: FC<CreateCommentProps> = ({ postId, replyToId }) => {
             disabled={input.length === 0}
             onClick={() => comment({ postId, text: input, replyToId })}
           >
-            Post
+            发布
           </Button>
         </div>
       </div>

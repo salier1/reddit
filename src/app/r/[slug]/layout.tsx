@@ -63,11 +63,11 @@ const Layout = async ({
           {/* info sidebar */}
           <div className="hiddem md:block overflow-hidden h-fit rounded-lg border bg-gray-200 order-first md:order-last">
             <div className="px-6 py-4">
-              <p className="font-semibold py-3">About r/{slug}</p>
+              <p className="font-semibold py-3">关于 r/{slug}</p>
             </div>
             <dl className="divide-y divide-gray-100 px-6 py-4 text-sm leading-6 bg-white">
               <div className="flex justify-between gap-x-4 py-3">
-                <dt className="text-gray-500">Created</dt>
+                <dt className="text-gray-500">创建于</dt>
                 <dd className="text-gray-700">
                   <time dateTime={subreddit.createdAt.toDateString()}>
                     {format(subreddit.createdAt, "yyyy-MM-dd")}
@@ -76,7 +76,7 @@ const Layout = async ({
               </div>
 
               <div className="flex justify-between gap-x-4 py-3">
-                <dt className="text-gray-500">Members</dt>
+                <dt className="text-gray-500">用户</dt>
                 <dd className="text-gray-700">
                   <div className="text-gray-900">{MemberCount}</div>
                 </dd>
@@ -84,7 +84,7 @@ const Layout = async ({
 
               {subreddit.creatorId === session?.user.id ? (
                 <div className="flex justify-between gap-x-4 py-3">
-                  <dt className="text-gray-500">You created this community</dt>
+                  <dt className="text-gray-500">你创建了这个社区</dt>
                 </div>
               ) : null}
 
@@ -102,7 +102,7 @@ const Layout = async ({
                 })}
                 href={`r/${slug}/submit`}
               >
-                Create Post
+                发布帖子
               </Link>
             </dl>
           </div>

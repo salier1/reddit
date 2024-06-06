@@ -53,10 +53,10 @@ const CommentVotes: FC<CommentVotesProps> = ({
       }
 
       return toast({
-        title: 'Something went wrong.',
-        description: 'Your vote was not registered. Please try again.',
-        variant: 'destructive',
-      })
+        title: "出了点问题。",
+        description: "您的投票没有成功。请再试一次。",
+        variant: "destructive",
+      });
     },
     onMutate: (type: VoteType) => {
       if (currentVote?.type === type) {

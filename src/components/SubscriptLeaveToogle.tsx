@@ -39,8 +39,8 @@ const SubscriptLeaveToogle: FC<SubscriptLeaveToogleProps> = ({
       }
 
       return toast({
-        title: "There was a problem",
-        description: "Something went wrong, please try again.",
+        title: "有个问题",
+        description: "出了点问题，请再试一次。",
         variant: "destructive",
       });
     },
@@ -49,8 +49,8 @@ const SubscriptLeaveToogle: FC<SubscriptLeaveToogleProps> = ({
         router.refresh();
       });
       return toast({
-        title: "Subscribed!",
-        description: `You are now subscribed to r/${subredditName}`,
+        title: "已订阅！",
+        description: `您现在已订阅 r/${subredditName}`,
         color: "#3D522A",
       });
     },
@@ -71,8 +71,8 @@ const SubscriptLeaveToogle: FC<SubscriptLeaveToogleProps> = ({
       }
 
       return toast({
-        title: "There was a problem",
-        description: "Something went wrong, please try again.",
+        title: "有个问题",
+        description: "出了点问题，请再试一次。",
         variant: "destructive",
       });
     },
@@ -81,8 +81,8 @@ const SubscriptLeaveToogle: FC<SubscriptLeaveToogleProps> = ({
         router.refresh();
       });
       return toast({
-        title: "Unsubscribed!",
-        description: `You are now unsubscribed from r/${subredditName}`,
+        title: "取消订阅！",
+        description: `您现在已取消订阅 r/${subredditName}`,
       });
     },
   });
@@ -93,7 +93,7 @@ const SubscriptLeaveToogle: FC<SubscriptLeaveToogleProps> = ({
       onClick={() => unSubscribe()}
       className="w-full mt-1 mb-4"
     >
-      Leave community
+      离开社区
     </Button>
   ) : (
     <Button
@@ -101,7 +101,7 @@ const SubscriptLeaveToogle: FC<SubscriptLeaveToogleProps> = ({
       onClick={() => subscribe()}
       className="w-full mt-1 mb-4"
     >
-      Join to post
+      加入社区
     </Button>
   );
 };

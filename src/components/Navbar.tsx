@@ -23,7 +23,7 @@ export default async function Navbar() {
           <UserAccountNav user={session.user}></UserAccountNav>
         ) : (
           <Link href="/sign-in" className={buttonVariants()}>
-            Sign In
+            登录
           </Link>
         )}
       </div>

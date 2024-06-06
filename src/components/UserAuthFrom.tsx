@@ -18,8 +18,8 @@ const UserAuthFrom: FC<UserAuthFromProps> = ({ className, ...props }) => {
       await signIn("google");
     } catch (error) {
       toast({
-        title: "There was a problem.",
-        description: "There was an error logging in with Google",
+        title: "有一个问题。",
+        description: "使用谷歌登录时出错",
         variant: "destructive",
       });
     } finally {
@@ -32,8 +32,8 @@ const UserAuthFrom: FC<UserAuthFromProps> = ({ className, ...props }) => {
       await signIn("github");
     } catch (error) {
       toast({
-        title: "There was a problem.",
-        description: "There was an error logging in with Github",
+        title: "有一个问题。",
+        description: "使用Github登录时出错",
         variant: "destructive",
       });
     } finally {
@@ -67,18 +67,7 @@ const UserAuthFrom: FC<UserAuthFromProps> = ({ className, ...props }) => {
         )}
         Github
       </Button>
-      {/* <Button
-        size={"sm"}
-        className="w-full"
-        onClick={() =>
-          toast({
-            title: "There was a problem.",
-            description: "There was an error logging in with Google",
-            variant: "destructive",
-          })
-        }>
-        toast
-      </Button> */}
+
       <Toaster></Toaster>
     </div>
   );
